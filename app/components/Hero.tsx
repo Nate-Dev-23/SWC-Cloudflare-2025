@@ -53,7 +53,7 @@ export default function Hero() {
       ))}
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/55" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
@@ -73,12 +73,24 @@ export default function Hero() {
             A place where faith comes alive and community grows stronger
           </p>
           
-          {/* Call to Action - Optional */}
+          {/* Call to Action */}
           <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-            <button className="bg-white text-black px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors duration-200">
+            <button 
+              onClick={() => {
+                const mapSection = document.getElementById('map-section')
+                mapSection?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              className="bg-white text-black px-8 py-3 rounded-md font-medium hover:bg-gray-200 transition-colors duration-200"
+            >
               Join Us Sunday
             </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-md font-medium hover:bg-white hover:text-black transition-colors duration-200">
+            <button 
+              onClick={() => {
+                const aboutSection = document.getElementById('about-section')
+                aboutSection?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              className="border-2 border-white text-white px-8 py-3 rounded-md font-medium hover:bg-white hover:text-black transition-colors duration-200"
+            >
               Learn More
             </button>
           </div>

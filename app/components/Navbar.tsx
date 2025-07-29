@@ -18,7 +18,7 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className='flex items-center justify-between px-6 py-4 fixed z-50 bg-black/95 backdrop-blur-sm w-full text-white border-b border-gray-800'>
+    <nav className='flex items-center justify-between px-6 py-4 fixed z-50 bg-gray-50/95 backdrop-blur-sm w-full text-gray-900 shadow-lg'>
       {/* Logo Section */}
       <Link href="/" className='flex items-center gap-3 hover:opacity-80 transition-opacity'>
         <Image 
@@ -26,11 +26,11 @@ export default function Navbar() {
           alt="Church Logo"
           width={50}
           height={50}
-          className="rounded-full"
+          className="rounded-full shadow-lg"
         />
         <div className='font-playfair'>
-          <h1 className='text-lg font-bold leading-tight'>Stirling</h1>
-          <p className='text-sm opacity-90 leading-tight'>Worship Center</p>
+          <h1 className='text-lg font-bold leading-tight text-gray-900'>Stirling</h1>
+          <p className='text-sm opacity-70 leading-tight text-gray-700'>Worship Center</p>
         </div>
       </Link>
 
@@ -42,7 +42,7 @@ export default function Navbar() {
               <NavigationMenuLink asChild>
                 <Link 
                   href={item.href}
-                  className='px-4 py-2 text-sm font-medium text-white hover:text-gray-300 hover:bg-white/10 rounded-md transition-all duration-200'
+                  className='px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-all duration-200'
                 >
                   {item.label}
                 </Link>
@@ -55,12 +55,12 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild className='md:hidden'>
-          <Button variant="ghost" size="icon" className='text-white hover:bg-white/10'>
+          <Button variant="ghost" size="icon" className='text-gray-900 hover:bg-gray-100'>
             <Menu className="h-6 w-6" />
             <span className="sr-only">Toggle menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-[300px] bg-black border-gray-800 [&>button]:hidden">
+        <SheetContent side="right" className="w-[300px] bg-white border-gray-200 [&>button]:hidden">
           <SheetHeader>
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           </SheetHeader>
@@ -71,7 +71,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className='px-4 py-3 text-white hover:bg-white/10 rounded-md transition-colors duration-200 font-medium'
+                  className='px-4 py-3 text-gray-900 hover:bg-gray-100 rounded-md transition-colors duration-200 font-medium'
                 >
                   {item.label}
                 </Link>
