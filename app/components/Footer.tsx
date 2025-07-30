@@ -106,7 +106,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright - seamless integration */}
-          <div className="text-center mt-12 pt-8">
+          <div className="text-center mt-8 pt-6">
             <p className="text-sm text-gray-400">
               © {currentYear} Stirling Worship Center. All rights reserved.
             </p>
