@@ -14,6 +14,16 @@ export default function Hero() {
     '/hero-3.jpeg',
   ]
 
+  // Preload first image
+  useEffect(() => {
+    const link = document.createElement('link')
+    link.rel = 'preload'
+    link.as = 'image'
+    link.href = heroImages[0]
+    document.head.appendChild(link)
+    return () => document.head.removeChild(link)
+  }, [])
+
   // Auto-rotate images every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
@@ -33,7 +43,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-gray-800">
+    <section className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-[#f48120] to-[#d93620]">
       {/* Background Images */}
       {heroImages.map((image, index) => (
         <div
@@ -48,8 +58,7 @@ export default function Hero() {
             fill
             className="object-cover"
             priority={index === 0}
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyBYWzjvk2MxVRe/wCEd9a"
+            loading="eager"
           />
         </div>
       ))}
