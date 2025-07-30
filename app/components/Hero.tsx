@@ -21,7 +21,9 @@ export default function Hero() {
     link.as = 'image'
     link.href = heroImages[0]
     document.head.appendChild(link)
-    return () => document.head.removeChild(link)
+    return () => {
+      document.head.removeChild(link)
+    }
   }, [])
 
   // Auto-rotate images every 5 seconds
@@ -91,7 +93,7 @@ export default function Hero() {
                 const mapSection = document.getElementById('map-section')
                 mapSection?.scrollIntoView({ behavior: 'smooth' })
               }}
-              className="bg-white text-black px-8 py-3 rounded-md font-medium hover:bg-gray-200 transition-colors duration-200"
+              className="bg-white text-black px-8 py-3 rounded-md font-medium hover:bg-gray-200 hover:scale-105 hover:shadow-lg transition-all duration-300 transform active:scale-95"
             >
               Join Us Sunday
             </button>
@@ -100,7 +102,7 @@ export default function Hero() {
                 const aboutSection = document.getElementById('about-section')
                 aboutSection?.scrollIntoView({ behavior: 'smooth' })
               }}
-              className="border-2 border-white text-white px-8 py-3 rounded-md font-medium hover:bg-white hover:text-black transition-colors duration-200"
+              className="border-2 border-white text-white px-8 py-3 rounded-md font-medium hover:bg-white hover:text-black hover:scale-105 hover:shadow-lg transition-all duration-300 transform active:scale-95"
             >
               Learn More
             </button>

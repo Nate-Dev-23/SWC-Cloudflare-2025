@@ -3,7 +3,7 @@ import { MapPin, Clock, Mail } from 'lucide-react'
 
 export default function MapSection() {
   return (
-    <section id="map-section" className="py-16 bg-white">
+    <section id="map-section" className="py-16 bg-white animate-in fade-in-0 slide-in-from-bottom-4 duration-700">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-gray-900 mb-4">

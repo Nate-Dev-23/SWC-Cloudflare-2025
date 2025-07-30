@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 
 export default function AboutSection() {
   return (
-    <section id="about-section" className="py-20 px-6 bg-gray-50">
+    <section id="about-section" className="py-20 px-6 bg-gray-50 animate-in fade-in-0 slide-in-from-bottom-4 duration-700">
       <div className="max-w-4xl mx-auto text-center">
         {/* Section Title */}
         <h2 className="font-playfair text-4xl md:text-5xl font-bold text-gray-900 mb-12">
