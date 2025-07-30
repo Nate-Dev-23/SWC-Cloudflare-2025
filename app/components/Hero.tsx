@@ -76,7 +76,7 @@ export default function Hero() {
           </p>
           
           {/* Call to Action */}
-          <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+          <div className="flex flex-col space-y-6 sm:flex-row sm:space-y-0 sm:space-x-4 sm:justify-center">
             <button 
               onClick={() => {
                 const mapSection = document.getElementById('map-section')

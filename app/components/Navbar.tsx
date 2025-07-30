@@ -65,6 +65,14 @@ export default function Navbar() {
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           </SheetHeader>
           <div className="flex flex-col gap-6 mt-4">
+            {/* Menu Header */}
+            <div className="text-center">
+              <h2 className="text-xl font-semibold text-gray-900 font-playfair mb-3">
+                Stirling Worship Center
+              </h2>
+              <div className="w-full h-px bg-gray-300"></div>
+            </div>
+            
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <Link
