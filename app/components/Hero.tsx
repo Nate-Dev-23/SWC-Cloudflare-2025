@@ -6,6 +6,7 @@ import { ChevronDown } from 'lucide-react'
 
 export default function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [imagesLoaded, setImagesLoaded] = useState<Record<number, boolean>>({})
 
   // Sample images - you can replace these with your church images
   const heroImages = [
@@ -37,6 +38,10 @@ export default function Hero() {
     return () => clearInterval(timer)
   }, [heroImages.length])
 
+  const handleImageLoad = (index: number) => {
+    setImagesLoaded(prev => ({ ...prev, [index]: true }))
+  }
+
   const scrollToContent = () => {
     window.scrollTo({
       top: window.innerHeight,
@@ -50,17 +55,22 @@ export default function Hero() {
       {heroImages.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+          className={`absolute inset-0 transition-all duration-1000 ease-out ${
+            index === currentImageIndex 
+              ? imagesLoaded[index] 
+                ? 'opacity-100 scale-100' 
+                : 'opacity-0 scale-105'
+              : 'opacity-0 scale-100'
           }`}
         >
           <Image
             src={image}
             alt={`Stirling Worship Center ${index + 1}`}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-1000 ease-out"
             priority={index === 0}
             loading="eager"
+            onLoad={() => handleImageLoad(index)}
           />
         </div>
       ))}

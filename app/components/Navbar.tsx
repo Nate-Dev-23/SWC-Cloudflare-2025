@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useTransition } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -10,6 +10,7 @@ import { Menu, X } from 'lucide-react'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isPending, startTransition] = useTransition()
 
   const navItems = [
     { href: '/', label: 'Home' },
@@ -20,7 +21,7 @@ export default function Navbar() {
   return (
     <nav className='flex items-center justify-between px-6 py-4 fixed z-50 bg-gray-50/95 backdrop-blur-sm w-full text-gray-900 shadow-lg'>
       {/* Logo Section */}
-      <Link href="/" className='flex items-center gap-3 hover:opacity-80 transition-all duration-300 hover:scale-105'>
+      <Link href="/" className='flex items-center gap-3 hover:opacity-80 transition-opacity duration-300'>
         <Image 
           src="/SWC_LOGO_WHITE.png"
           alt="Church Logo"
@@ -42,7 +43,7 @@ export default function Navbar() {
               <NavigationMenuLink asChild>
                 <Link 
                   href={item.href}
-                  className='px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-all duration-200 hover:scale-105 transform'
+                  className='px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors duration-200'
                 >
                   {item.label}
                 </Link>
@@ -55,7 +56,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild className='md:hidden'>
-          <Button variant="ghost" size="icon" className='text-gray-900 hover:bg-gray-100 transition-all duration-200 hover:scale-110 transform'>
+          <Button variant="ghost" size="icon" className='text-gray-900 hover:bg-gray-100 transition-colors duration-200'>
             <Menu className="h-6 w-6" />
             <span className="sr-only">Toggle menu</span>
           </Button>
@@ -79,7 +80,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3 text-gray-900 hover:bg-gray-100 rounded-md transition-all duration-200 font-medium transform hover:translate-x-1 animate-in slide-in-from-right-4 fade-in-0`}
+                  className={`px-4 py-3 text-gray-900 hover:bg-gray-100 rounded-md transition-colors duration-200 font-medium animate-in slide-in-from-right-4 fade-in-0`}
                   style={{ 
                     animationDelay: `${(index + 1) * 100}ms`,
                     animationFillMode: 'both'

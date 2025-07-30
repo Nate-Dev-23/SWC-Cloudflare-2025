@@ -30,7 +30,9 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} antialiased`}
       >
         <Navbar />
-        {children}
+        <main className="animate-in fade-in-0 duration-300">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
